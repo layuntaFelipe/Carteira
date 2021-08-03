@@ -12,7 +12,10 @@ struct RegisterView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var name: String = ""
-    @State private var userPhoto: UIImage = UIImage(systemName: "person.circle")!
+    
+    @State private var changeProfileImage = false
+    @State private var openCameraRoll = false
+    @State private var userPhoto = UIImage()
     
     @EnvironmentObject var firebaseAppModel: FirebaseAppModel
     
@@ -33,13 +36,19 @@ struct RegisterView: View {
                     VStack{
                         
                         Button(action: {
-                            
+                            changeProfileImage = true
+                            openCameraRoll = true
                         }, label: {
-                            ZStack(alignment: .bottom){
+                            if changeProfileImage {
                                 Image(uiImage: userPhoto)
                                     .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 80, height: 100)
+                                    .frame(width: 120, height: 120)
+                                    .clipShape(Circle())
+                            } else {
+                                Image(systemName: "person")
+                                    .resizable()
+                                    .frame(width: 120, height: 120)
+                                    .clipShape(Circle())
                             }
                         })
                         
@@ -90,6 +99,9 @@ struct RegisterView: View {
                     })
                     .padding(.vertical,30)
                 }
+            }
+            .sheet(isPresented: $openCameraRoll){
+                ImagePicker(selectedImage: $userPhoto, sourceType: .photoLibrary)
             }
             .navigationTitle("Register")
             .navigationBarHidden(true)
