@@ -17,21 +17,28 @@ struct HomeView: View {
     }
     
     var body: some View {
-        TabView(selection: $selectedTab){
-            HomePage()
-                .tag("Home")
-            
-            History()
-                .tag("History")
-            
-            Notifications()
-                .tag("Notifications")
-            
-            Settings()
-                .tag("Settings")
-            
-            Help()
-                .tag("Help")
+        NavigationView {
+            TabView(selection: $selectedTab){
+                HomePage()
+                    .tag("Home")
+                    .navigationBarHidden(true)
+                
+                History()
+                    .tag("History")
+                    .navigationBarHidden(true)
+                
+                Notifications()
+                    .tag("Notifications")
+                    .navigationBarHidden(true)
+                
+                Settings()
+                    .tag("Settings")
+                    .navigationBarHidden(true)
+                
+                Help()
+                    .tag("Help")
+                    .navigationBarHidden(true)
+            }
         }
     }
 }
@@ -42,61 +49,45 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
-struct HomePage: View {
-    var body: some View {
-        NavigationView {
-            Text("Home")
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .foregroundColor(.primary)
-                .navigationTitle("Home")
-        }
-    }
-}
-
 struct History: View {
     var body: some View {
-        NavigationView {
+        ZStack(alignment: .top) {
             Text("History")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundColor(.primary)
-                .navigationTitle("History")
         }
     }
 }
 
 struct Notifications: View {
     var body: some View {
-        NavigationView {
+        ZStack {
             Text("Notifications")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundColor(.primary)
-                .navigationTitle("Notifications")
         }
     }
 }
 
 struct Settings: View {
     var body: some View {
-        NavigationView {
+        ZStack {
             Text("Settings")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundColor(.primary)
-                .navigationTitle("Settings")
         }
     }
 }
 struct Help: View {
     var body: some View {
-        NavigationView {
+        ZStack {
             Text("Help")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundColor(.primary)
-                .navigationTitle("Help")
         }
     }
 }

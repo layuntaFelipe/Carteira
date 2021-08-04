@@ -13,12 +13,18 @@ struct TabButton: View {
     
     @Binding var selectedTab: String
     
+    @EnvironmentObject var firebaseAppModel: FirebaseAppModel
+    
     var animation: Namespace.ID
     
     var body: some View {
         Button(action: {
             withAnimation(.spring()) {
                 selectedTab = title
+            }
+            
+            if title == "Log out" {
+                firebaseAppModel.signOut()
             }
         }, label: {
             HStack(spacing: 15){

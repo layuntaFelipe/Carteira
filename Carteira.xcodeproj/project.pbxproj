@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		271B6D0D26BA3C64008F1E51 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B6D0C26BA3C64008F1E51 /* HomePage.swift */; };
 		272829B226B8FBD700E5FBEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 272829B126B8FBD700E5FBEE /* GoogleService-Info.plist */; };
 		272829B426B8FD6500E5FBEE /* AppDelegateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272829B326B8FD6500E5FBEE /* AppDelegateModel.swift */; };
 		272829B626B8FD9400E5FBEE /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272829B526B8FD9400E5FBEE /* FirebaseModel.swift */; };
@@ -24,7 +25,6 @@
 		27A66B2026B8A7D3005D37F5 /* PresentationCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66B1F26B8A7D3005D37F5 /* PresentationCardButton.swift */; };
 		27A66B2426B8AD98005D37F5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66B2326B8AD98005D37F5 /* LoginView.swift */; };
 		27A66B2626B8C1A4005D37F5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66B2526B8C1A4005D37F5 /* RegisterView.swift */; };
-		27A66B2826B8C25A005D37F5 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A66B2726B8C25A005D37F5 /* DashboardView.swift */; };
 		27AE008F2671922600B8C5FE /* CarteiraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE008E2671922600B8C5FE /* CarteiraApp.swift */; };
 		27AE00912671922600B8C5FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE00902671922600B8C5FE /* ContentView.swift */; };
 		27AE00932671922800B8C5FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AE00922671922800B8C5FE /* Assets.xcassets */; };
@@ -36,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		21BB1C5F99454772C5481279 /* Pods-Carteira.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carteira.debug.xcconfig"; path = "Target Support Files/Pods-Carteira/Pods-Carteira.debug.xcconfig"; sourceTree = "<group>"; };
+		271B6D0C26BA3C64008F1E51 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		272829B126B8FBD700E5FBEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		272829B326B8FD6500E5FBEE /* AppDelegateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateModel.swift; sourceTree = "<group>"; };
 		272829B526B8FD9400E5FBEE /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		27A66B1F26B8A7D3005D37F5 /* PresentationCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationCardButton.swift; sourceTree = "<group>"; };
 		27A66B2326B8AD98005D37F5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		27A66B2526B8C1A4005D37F5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		27A66B2726B8C25A005D37F5 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		27AE008B2671922600B8C5FE /* Carteira.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carteira.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AE008E2671922600B8C5FE /* CarteiraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarteiraApp.swift; sourceTree = "<group>"; };
 		27AE00902671922600B8C5FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,11 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				27A66B1826B89178005D37F5 /* App */,
-				27A66B1B26B89288005D37F5 /* OnboardingView.swift */,
 				27A66B2326B8AD98005D37F5 /* LoginView.swift */,
 				27A66B2526B8C1A4005D37F5 /* RegisterView.swift */,
-				27A66B2726B8C25A005D37F5 /* DashboardView.swift */,
-				279BA59226B9C81500B36DD8 /* MainView.swift */,
 				279BA59826B9D43800B36DD8 /* SIdeMenuView.swift */,
 				279BA59A26B9D53F00B36DD8 /* HomeView.swift */,
 			);
@@ -122,6 +119,9 @@
 			children = (
 				27AE008E2671922600B8C5FE /* CarteiraApp.swift */,
 				27AE00902671922600B8C5FE /* ContentView.swift */,
+				279BA59226B9C81500B36DD8 /* MainView.swift */,
+				27A66B1B26B89288005D37F5 /* OnboardingView.swift */,
+				271B6D0C26BA3C64008F1E51 /* HomePage.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -316,9 +316,9 @@
 				27A66B2626B8C1A4005D37F5 /* RegisterView.swift in Sources */,
 				279BA59B26B9D53F00B36DD8 /* HomeView.swift in Sources */,
 				27A66B1726B890CA005D37F5 /* CardView.swift in Sources */,
-				27A66B2826B8C25A005D37F5 /* DashboardView.swift in Sources */,
 				272829B426B8FD6500E5FBEE /* AppDelegateModel.swift in Sources */,
 				279BA59926B9D43800B36DD8 /* SIdeMenuView.swift in Sources */,
+				271B6D0D26BA3C64008F1E51 /* HomePage.swift in Sources */,
 				27A66B1526B89094005D37F5 /* CardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

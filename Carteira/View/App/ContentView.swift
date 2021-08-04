@@ -18,10 +18,10 @@ struct ContentView: View {
 //                .animation(.easeIn)
 //                .navigationBarTitle("My Wallet")
             if firebaseAppModel.signedIn {
-                DashboardView()
+                MainView()
                     .navigationBarHidden(true)
             } else {
-                OnboardingView()
+                LoginView()
                     .navigationBarHidden(true)
             }
             
