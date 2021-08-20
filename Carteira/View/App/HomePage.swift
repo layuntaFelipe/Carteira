@@ -11,9 +11,8 @@ struct HomePage: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .top){
-                Color.black.ignoresSafeArea()
-                Color.purple.opacity(0.15).ignoresSafeArea()
-                ScrollView{
+                Color("background").ignoresSafeArea()
+                ScrollView(showsIndicators: false){
                     HStack{
                         Spacer()
                         
@@ -23,7 +22,7 @@ struct HomePage: View {
                             Image(systemName: "plus.circle")
                                 .resizable()
                                 .scaledToFit()
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("sidePannel"))
                                 .frame(width: 40, height: 40)
                         })
                         .padding()
@@ -33,13 +32,13 @@ struct HomePage: View {
                         Image(systemName: "person.circle")
                             .resizable()
                             .scaledToFit()
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("sidePannel"))
                             .frame(width: 50, height: 50)
                         
                         Text("Hi, Felipe!")
                             .font(.title)
                             .fontWeight(.semibold)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("sidePannel"))
                         
                         Spacer()
                     }
@@ -55,19 +54,34 @@ struct HomePage: View {
                     
                     HStack {
                         Spacer()
-                        GroupBox{
+                        Group{
                             VStack(alignment: .leading){
                                 Text("Total Balance")
+                                    .foregroundColor(Color("sidePannel"))
                                 Text("$ 12.000")
+                                    .foregroundColor(Color("sidePannel"))
                             }
                         }
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .foregroundColor(Color("groupBoxColor"))
+                                .frame(width: 150, height: 80, alignment: .leading)
+                        )
+                        
                         Spacer()
-                        GroupBox{
+                        Group{
                             VStack(alignment: .leading){
                                 Text("Monthly Spend")
+                                    .foregroundColor(Color("sidePannel"))
                                 Text("$ 3.410")
+                                    .foregroundColor(Color("sidePannel"))
                             }
                         }
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .foregroundColor(Color("groupBoxColor"))
+                                .frame(width: 150, height: 80, alignment: .leading)
+                        )
                         Spacer()
                     }
                     .padding(.vertical)
@@ -82,16 +96,14 @@ struct HomePage: View {
                         Text("History")
                             .font(.title3)
                             .fontWeight(.semibold)
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("sidePannel"))
                             .padding()
                         Spacer()
                     }
                     
                     ForEach(0...10, id: \.self){ text in
-                        Text("Test")
-                            .font(.title)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
+                        OutcomeIncomeView()
+                            .padding()
                     }
                 }
             }

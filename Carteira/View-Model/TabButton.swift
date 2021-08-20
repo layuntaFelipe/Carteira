@@ -35,7 +35,7 @@ struct TabButton: View {
                 Text(title)
                     .fontWeight(.semibold)
             }
-            .foregroundColor(selectedTab == title ? .blue : .white)
+            .foregroundColor(selectedTab == title ? Color("sidePannel") : Color("background"))
             .padding(.vertical,12)
             .padding(.horizontal,10)
             // Max Frame
@@ -43,7 +43,7 @@ struct TabButton: View {
             .background(
                 ZStack{
                     if selectedTab == title {
-                        Color.white
+                        Color("background")
                             .opacity(selectedTab == title ? 1 : 0)
                             .clipShape(CustomCorners(corners: [.topRight, .bottomRight], radious: 10))
                             .matchedGeometryEffect(id: "TAB", in: animation)

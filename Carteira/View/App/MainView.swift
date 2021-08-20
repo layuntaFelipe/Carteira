@@ -15,21 +15,21 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.blue.ignoresSafeArea()
+                Color("sidePannel").ignoresSafeArea()
                 
                 //SIde Menu
                 SIdeMenuView(selectedTab: $selectedTab)
                 
                 ZStack{
                     // 2 background cards...
-                    Color.white
+                    Color("background")
                         .opacity(0.5)
                         .cornerRadius(showMenu ? 15 : 0)
                         .shadow(color: Color.black.opacity(0.07), radius: 5, x: -5, y: 0)
                         .offset(x: showMenu ? -25 : 0)
                         .padding(.vertical, 30)
                     
-                    Color.white
+                    Color("background")
                         .opacity(0.4)
                         .cornerRadius(showMenu ? 15 : 0)
                         .shadow(color: Color.black.opacity(0.07), radius: 5, x: -5, y: 0)
@@ -53,16 +53,16 @@ struct MainView: View {
                         // Animated Drawer Button
                         VStack(spacing: 5){
                             Capsule()
-                                .fill(showMenu ? Color.white : Color.primary)
+                                .fill(showMenu ? Color("background") : Color("sidePannel"))
                                 .frame(width: 30, height: 3)
                                 .rotationEffect(.init(degrees: showMenu ? -50 : 0))
                                 .offset(x: showMenu ? 2 : 0, y: showMenu ? 9 : 0)
                             VStack(spacing: 5){
                                 Capsule()
-                                    .fill(showMenu ? Color.white : Color.primary)
+                                    .fill(showMenu ? Color("background") : Color("sidePannel"))
                                     .frame(width: 30, height: 3)
                                 Capsule()
-                                    .fill(showMenu ? Color.white : Color.primary)
+                                    .fill(showMenu ? Color("background") : Color("sidePannel"))
                                     .frame(width: 30, height: 3)
                                     .offset(y: showMenu ? -8 : 0)
                             }
@@ -84,6 +84,7 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .preferredColorScheme(.dark)
     }
 }
 

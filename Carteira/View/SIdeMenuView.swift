@@ -17,6 +17,7 @@ struct SIdeMenuView: View {
             Image(systemName: "person")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
+                .foregroundColor(Color("background"))
                 .frame(width: 70, height: 70)
                 .cornerRadius(10)
                 .padding(.top, 50)
@@ -25,14 +26,14 @@ struct SIdeMenuView: View {
                 Text("Felipe Lobo")
                     .font(.title)
                     .fontWeight(.heavy)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("background"))
                 
                 Button(action: {
                     
                 }, label: {
                     Text("View Profile")
                         .fontWeight(.semibold)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("background"))
                         .opacity(0.7)
                 })
             }
