@@ -44,6 +44,19 @@ struct CardView: View {
                     Spacer()
                 }//HSTACK
             }//VSTACK
+            HStack{
+                Spacer()
+                NavigationLink(
+                    destination: DetailView(card: cards[0]),
+                    label: {
+                        Image(systemName: "arrow.right")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(Color(secondColor))
+                            .frame(width: 80, height: 80)
+                            .padding()
+                    })
+            }
         }//ZSTACK
         .cornerRadius(20)
         .offset(y: offSet ?? 0)

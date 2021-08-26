@@ -21,10 +21,14 @@ struct IncomeOutcomeButton: View {
                 Color(buttonColor)
                 HStack{
                     Image(systemName: imageArrow)
+                        .foregroundColor(.white)
                     
                     Text(buttonTitle)
+                        .foregroundColor(.white)
                 }
+                .padding()
             }
+            .cornerRadius(10)
         })
     }
 }

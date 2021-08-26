@@ -24,18 +24,26 @@ struct DetailView: View {
                     
                     HStack{
                         IncomeOutcomeButton(imageArrow: "arrow.down.square", buttonTitle: "Income", buttonColor: card.cardFirstColor)
+                            .frame(width: 120, height: 40, alignment: .center)
+                            .padding(.horizontal)
                         
                         IncomeOutcomeButton(imageArrow: "arrow.up.square", buttonTitle: "Outcome", buttonColor: card.cardSecondColor)
+                            .frame(width: 120, height: 40, alignment: .center)
+                            .padding(.horizontal)
                     }
+                    .padding()
                     
                     HStack {
                         Spacer()
                         Group{
                             VStack(alignment: .leading){
                                 Text("Total Balance")
-                                    .foregroundColor(Color("sidePannel"))
+                                    .foregroundColor(Color.gray)
+                                    .font(.subheadline)
                                 Text("$ 12.000")
                                     .foregroundColor(Color("sidePannel"))
+                                    .fontWeight(.semibold)
+                                    .font(.body)
                             }
                         }
                         .background(
@@ -48,9 +56,12 @@ struct DetailView: View {
                         Group{
                             VStack(alignment: .leading){
                                 Text("Monthly Spend")
-                                    .foregroundColor(Color("sidePannel"))
+                                    .foregroundColor(Color.gray)
+                                    .font(.subheadline)
                                 Text("$ 3.410")
                                     .foregroundColor(Color("sidePannel"))
+                                    .fontWeight(.semibold)
+                                    .font(.body)
                             }
                         }
                         .background(
@@ -63,21 +74,32 @@ struct DetailView: View {
                     .padding(.vertical)
                         
                     
-                    HStack{
-                        Text("Card's Statistic")
-                        
-                        Spacer()
+                    Group {
+                        HStack{
+                            Text("Card's Statistic")
+                            Spacer()
+                        }
+                        GroupBox{
+                            BarChartView()
+                        }
+                        .padding()
                     }
+                    
+                    
+                    
                     HStack{
                         Text("Card's History")
                         
                         Spacer()
                     }
                     
+                    ForEach(0...10, id: \.self){ text in
+                        OutcomeIncomeView()
+                            .padding()
+                    }
+                    
                 })
             }
-            
-            
             
         }
     }

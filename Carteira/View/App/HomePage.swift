@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct HomePage: View {
+    
+    @State var cardShown = false
+    @State var cardDismiss = false
+    
+    let firebaseAppModel = FirebaseAppModel()
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .top){
@@ -17,7 +23,8 @@ struct HomePage: View {
                         Spacer()
                         
                         Button(action: {
-                            
+                            cardShown.toggle()
+                            cardDismiss.toggle()
                         }, label: {
                             Image(systemName: "plus.circle")
                                 .resizable()
@@ -108,6 +115,14 @@ struct HomePage: View {
                 }
             }
             .navigationBarHidden(true)
+            
+            BottomCardView(cardDismiss: $cardShown, cardShown: $cardDismiss, height: UIScreen.main.bounds.height/2.2) {
+                Text("Hi, I'm the card")
+            }
+            .animation(.default)
+        }
+        .onAppear {
+            firebaseAppModel.getUserInfo()
         }
     }
 }

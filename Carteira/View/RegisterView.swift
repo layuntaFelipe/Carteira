@@ -85,7 +85,7 @@ struct RegisterView: View {
                         guard !email.isEmpty, !password.isEmpty else {
                             return
                         }
-                        firebaseAppModel.signUp(email: email, password: password)
+                        firebaseAppModel.signUp(userName: name, email: email, password: password)
                     }, label: {
                         Text("Register")
                             .frame(width: 250, height: 50)

@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import AuthenticationServices
+import FirebaseAuth
 
 struct LoginView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var currentNonce: String?
     
     @EnvironmentObject var firebaseAppModel: FirebaseAppModel
     
@@ -41,17 +44,17 @@ struct LoginView: View {
                     
                     VStack{
                         TextField("Email", text: $email)
-                            .frame(width: 250, height: 50)
+                            .frame(width: 280, height: 45)
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundColor(.gray.opacity(0.2))
                             )
                             .disableAutocorrection(true)
                             .autocapitalization(.none)
-        
+                        
                         
                         SecureField("Password", text: $password)
-                            .frame(width: 250, height: 50)
+                            .frame(width: 280, height: 45)
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundColor(.gray.opacity(0.2))
@@ -70,35 +73,64 @@ struct LoginView: View {
                         
                     }, label: {
                         Text("Login")
-                            .frame(width: 250, height: 50)
+                            .frame(width: 280, height: 45)
                             .font(.system(size: 20, weight: .medium, design: .rounded))
                             .foregroundColor(.white)
                             .background(
-                                RoundedRectangle(cornerRadius: 20)
+                                RoundedRectangle(cornerRadius: 7)
                                     .foregroundColor(.black)
                             )
                     })
                     .padding(.vertical,30)
                     
-                    HStack(alignment: .center, spacing: 35) {
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Apple")
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Facebook")
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Google")
-                        })
-                    }
+                    SignInWithAppleButton(
+                        onRequest: { request in
+                            let nonce = firebaseAppModel.randomNonceString()
+                            currentNonce = nonce
+                            request.requestedScopes = [.fullName, .email]
+                            request.nonce = firebaseAppModel.sha256(nonce)
+                        },
+                        onCompletion: { result in
+                            switch result {
+                            case .success(let authResults):
+                                switch authResults.credential {
+                                case let appleIDCredential as ASAuthorizationAppleIDCredential:
+                                    
+                                    guard let nonce = currentNonce else {
+                                        fatalError("Invalid state: A login callback was received, but no login request was sent.")
+                                    }
+                                    guard let appleIDToken = appleIDCredential.identityToken else {
+                                        fatalError("Invalid state: A login callback was received, but no login request was sent.")
+                                    }
+                                    guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                                        print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                                        return
+                                    }
+                                    
+                                    let credential = OAuthProvider.credential(withProviderID: "apple.com",idToken: idTokenString,rawNonce: nonce)
+                                    Auth.auth().signIn(with: credential) { (authResult, error) in
+                                        if (error != nil) {
+                                            // Error. If error.code == .MissingOrInvalidNonce, make sure
+                                            // you're sending the SHA256-hashed nonce as a hex string with
+                                            // your request to Apple.
+                                            print(error?.localizedDescription as Any)
+                                            return
+                                        }
+                                        print("signed in")
+                                        self.firebaseAppModel.appleSignIn()
+                                    }
+                                    
+                                    print("\(String(describing: Auth.auth().currentUser?.uid))")
+                                default:
+                                    break
+                                    
+                                }
+                            default:
+                                break
+                            }
+                        }
+                    ).frame(width: 280, height: 45)
+                    
                     
                 }
             }
