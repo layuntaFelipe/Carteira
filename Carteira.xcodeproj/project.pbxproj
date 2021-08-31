@@ -13,6 +13,7 @@
 		272829B626B8FD9400E5FBEE /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272829B526B8FD9400E5FBEE /* FirebaseModel.swift */; };
 		272D50DE26D0317B0029F565 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272D50DD26D0317B0029F565 /* DetailView.swift */; };
 		272D50E026D0338A0029F565 /* IncomeOutcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272D50DF26D0338A0029F565 /* IncomeOutcomeButton.swift */; };
+		27447F1226DD954600D08ED9 /* BottomCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27447F1126DD954600D08ED9 /* BottomCard.swift */; };
 		2788D53F26D6E68800E07952 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2788D53E26D6E68800E07952 /* DatabaseManager.swift */; };
 		279BA59126B9AAEA00B36DD8 /* ImagePickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279BA59026B9AAE900B36DD8 /* ImagePickerModel.swift */; };
 		279BA59326B9C81500B36DD8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279BA59226B9C81500B36DD8 /* MainView.swift */; };
@@ -35,7 +36,6 @@
 		27AE00962671922800B8C5FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AE00952671922800B8C5FE /* Preview Assets.xcassets */; };
 		27AE00982671922800B8C5FE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE00972671922800B8C5FE /* Persistence.swift */; };
 		27AE009B2671922800B8C5FE /* Carteira.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27AE00992671922800B8C5FE /* Carteira.xcdatamodeld */; };
-		27AEB21626D4113B006CE034 /* BottomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AEB21526D4113B006CE034 /* BottomCardView.swift */; };
 		27BFAE9626D079AE00070756 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BFAE9526D079AE00070756 /* BarChartView.swift */; };
 		BF12A66EFF13330C808D430A /* Pods_Carteira.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46326B8280FF3E1DA8FE96C3 /* Pods_Carteira.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +48,7 @@
 		272829B526B8FD9400E5FBEE /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
 		272D50DD26D0317B0029F565 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		272D50DF26D0338A0029F565 /* IncomeOutcomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeOutcomeButton.swift; sourceTree = "<group>"; };
+		27447F1126DD954600D08ED9 /* BottomCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCard.swift; sourceTree = "<group>"; };
 		2783B80226D3555D005F3B7A /* Carteira.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carteira.entitlements; sourceTree = "<group>"; };
 		2788D53E26D6E68800E07952 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		279BA59026B9AAE900B36DD8 /* ImagePickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerModel.swift; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		27AE00972671922800B8C5FE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		27AE009A2671922800B8C5FE /* Carteira.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Carteira.xcdatamodel; sourceTree = "<group>"; };
 		27AE009C2671922800B8C5FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		27AEB21526D4113B006CE034 /* BottomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCardView.swift; sourceTree = "<group>"; };
 		27BFAE9526D079AE00070756 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		46326B8280FF3E1DA8FE96C3 /* Pods_Carteira.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carteira.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA70780B5CC28782244358C5 /* Pods-Carteira.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carteira.release.xcconfig"; path = "Target Support Files/Pods-Carteira/Pods-Carteira.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 				279D60AD26CF4AC500B5B358 /* OutcomeIncomeView.swift */,
 				272D50DF26D0338A0029F565 /* IncomeOutcomeButton.swift */,
 				27BFAE9526D079AE00070756 /* BarChartView.swift */,
-				27AEB21526D4113B006CE034 /* BottomCardView.swift */,
+				27447F1126DD954600D08ED9 /* BottomCard.swift */,
 			);
 			path = "View-Model";
 			sourceTree = "<group>";
@@ -321,6 +321,7 @@
 			files = (
 				27AE009B2671922800B8C5FE /* Carteira.xcdatamodeld in Sources */,
 				27A66B2026B8A7D3005D37F5 /* PresentationCardButton.swift in Sources */,
+				27447F1226DD954600D08ED9 /* BottomCard.swift in Sources */,
 				279BA59726B9CBDE00B36DD8 /* CustomCornersModel.swift in Sources */,
 				27AE00982671922800B8C5FE /* Persistence.swift in Sources */,
 				279BA59126B9AAEA00B36DD8 /* ImagePickerModel.swift in Sources */,
@@ -342,7 +343,6 @@
 				272829B426B8FD6500E5FBEE /* AppDelegateModel.swift in Sources */,
 				279BA59926B9D43800B36DD8 /* SIdeMenuView.swift in Sources */,
 				271B6D0D26BA3C64008F1E51 /* HomePage.swift in Sources */,
-				27AEB21626D4113B006CE034 /* BottomCardView.swift in Sources */,
 				279D60AE26CF4AC500B5B358 /* OutcomeIncomeView.swift in Sources */,
 				27A66B1526B89094005D37F5 /* CardModel.swift in Sources */,
 				2788D53F26D6E68800E07952 /* DatabaseManager.swift in Sources */,

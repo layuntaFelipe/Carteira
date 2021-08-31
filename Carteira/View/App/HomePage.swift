@@ -9,10 +9,9 @@ import SwiftUI
 
 struct HomePage: View {
     
-    @State var cardShown = false
-    @State var cardDismiss = false
-    
     let firebaseAppModel = FirebaseAppModel()
+    @State var cardShown = false
+    @State var cardDismissal = false
     
     var body: some View {
         NavigationView {
@@ -23,8 +22,9 @@ struct HomePage: View {
                         Spacer()
                         
                         Button(action: {
+                            print("Button clicked")
                             cardShown.toggle()
-                            cardDismiss.toggle()
+                            cardDismissal.toggle()
                         }, label: {
                             Image(systemName: "plus.circle")
                                 .resizable()
@@ -113,19 +113,25 @@ struct HomePage: View {
                             .padding()
                     }
                 }
+                .blur(radius: cardShown ? 20 : 0)
+                
+                BottomCard(cardShown: $cardShown, cardDismissal: $cardDismissal, height: UIScreen.main.bounds.height/2.1) {
+                    CardContent(card: cards[0], cardShown: $cardShown, cardDismissal: $cardDismissal)
+                        .padding()
+                }
+                .animation(.default)
             }
             .navigationBarHidden(true)
             
-            BottomCardView(cardDismiss: $cardShown, cardShown: $cardDismiss, height: UIScreen.main.bounds.height/2.2) {
-                Text("Hi, I'm the card")
-            }
-            .animation(.default)
+            
         }
         .onAppear {
             firebaseAppModel.getUserInfo()
         }
+        
     }
 }
+
 
 struct HomePage_Previews: PreviewProvider {
     static var previews: some View {

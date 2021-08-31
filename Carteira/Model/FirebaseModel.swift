@@ -76,6 +76,7 @@ class FirebaseAppModel: ObservableObject {
         safeEmail = safeEmail.replacingOccurrences(of: "]", with: "-")
         safeEmail = safeEmail.replacingOccurrences(of: "[", with: "-")
         
+        print("Calling DatabaseManage to get user info")
         DatabaseManager.shared.getUser(email: safeEmail)
     }
     

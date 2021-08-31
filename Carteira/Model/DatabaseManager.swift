@@ -43,13 +43,13 @@ extension DatabaseManager {
         ])
     }
     
-    public func getUser(email: String) {
+    public func getUser(email: String)  {
         database.child(email).observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value as? [String: String] else {
                 return
             }
             
-            print("Value: \(value)")
+            print("Value: \(value["name"] ?? "Anonymous")")
         }
     }
     

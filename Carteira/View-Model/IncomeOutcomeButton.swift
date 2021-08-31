@@ -9,6 +9,8 @@ import SwiftUI
 
 struct IncomeOutcomeButton: View {
     
+    @Binding var cardShown: Bool
+    @Binding var cardDismissal: Bool
     var imageArrow: String
     var buttonTitle: String
     var buttonColor: String
@@ -16,6 +18,8 @@ struct IncomeOutcomeButton: View {
     var body: some View {
         Button(action: {
             print(buttonTitle)
+            cardShown.toggle()
+            cardDismissal.toggle()
         }, label: {
             ZStack{
                 Color(buttonColor)
@@ -30,12 +34,5 @@ struct IncomeOutcomeButton: View {
             }
             .cornerRadius(10)
         })
-    }
-}
-
-struct IncomeOutcomeButton_Previews: PreviewProvider {
-    static var previews: some View {
-        IncomeOutcomeButton(imageArrow: "arrow.down.square", buttonTitle: "Income", buttonColor: "darkOrange")
-            .previewLayout(.sizeThatFits)
     }
 }
